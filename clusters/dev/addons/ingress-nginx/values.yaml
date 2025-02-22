@@ -1,4 +1,4 @@
 controller:
   replicaCount: 1
   service:
-    type: ClusterIP
+    type: NodePort
