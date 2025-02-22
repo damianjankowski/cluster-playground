@@ -69,7 +69,20 @@ dashboards:
       gnetId: 1860
       revision: 1
       datasource: Prometheus
-    applications:
-      gnetId: 7587
+    api-server:
+      gnetId: 1621
       revision: 1
       datasource: Prometheus
+    kubelet:
+      gnetId: 1766
+      revision: 1
+      datasource: Prometheus
+    etcd:
+      gnetId: 3070
+      revision: 1
+      datasource: Prometheus
+    core-dns:
+      gnetId: 3662
+      revision: 1
+      datasource: Prometheus
+

@@ -18,24 +18,3 @@ spec:
           annotations:
             summary: "Ingress high 5xx errors"
             description: "Ingress Nginx returns more than 10 5xx errors per second for 2 minutes."
----
-apiVersion: monitoring.coreos.com/v1
-kind: PrometheusRule
-metadata:
-  name: argocd-alerts
-  namespace: monitoring
-  labels:
-    release: prometheus
-    app: prometheus
-spec:
-  groups:
-    - name: argocd-rules
-      rules:
-        - alert: ArgoCDAppsOutOfSync
-          expr: argocd_app_info{sync_status!="Synced"} > 0
-          for: 5m
-          labels:
-            severity: warning
-          annotations:
-            summary: "ArgoCD applications out of sync"
-            description: "One or more applications in ArgoCD have been out of sync for more than 5 minutes."
