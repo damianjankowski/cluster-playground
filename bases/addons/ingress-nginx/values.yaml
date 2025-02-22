@@ -1,0 +1,13 @@
+controller:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
+      scrapeInterval: 30s
+      additionalLabels:
+        release: prometheus
+      metricRelabelings:
+        - sourceLabels: [__name__]
+          regex: "nginx_ingress_controller_requests.*"
+          action: keep

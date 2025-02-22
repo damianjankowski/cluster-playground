@@ -1,0 +1,48 @@
+server:
+  persistentVolume:
+    enabled: true
+    size: 50Gi
+  service:
+    type: ClusterIP
+    port: 9090
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.dev
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    tls:
+      - hosts:
+          - prometheus.dev
+        secretName: prometheus-tls
+  prometheusSpec:
+    scrapeInterval: "30s"
+    evaluationInterval: "30s"
+    scrapeTimeout: "10s"
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+    serviceMonitorSelector:
+      matchLabels:
+        release: prometheus
+    ruleSelector:
+      matchLabels:
+        app: prometheus
+    ruleNamespaceSelector:
+      matchNames:
+        - monitoring
+
+
+kube-state-metrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+
+alertmanager:
+  enabled: true

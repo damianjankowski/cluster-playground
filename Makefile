@@ -76,3 +76,7 @@ bootstrap: ## Get ArgoCD server
 		--path clusters/dev/cluster-bootstrap/
 	kubectl create namespace monitoring
 	argocd app sync cluster-bootstrap
+
+.PHONY: sync
+sync: ##
+	argocd app sync cluster-bootstrap
