@@ -74,4 +74,5 @@ bootstrap: ## Get ArgoCD server
 		--dest-server https://kubernetes.default.svc \
 		--repo https://github.com/damianjankowski/cluster-playground.git \
 		--path clusters/dev/cluster-bootstrap/
+	kubectl create namespace monitoring
 	argocd app sync cluster-bootstrap

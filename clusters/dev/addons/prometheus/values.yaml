@@ -3,3 +3,17 @@ server:
     type: NodePort
 alertmanager:
   enabled: true
+
+nodeExporter:
+  hostRootMountPropagation: HostToContainer
+  extraArgs:
+    path.rootfs: /host
+  volumeMounts:
+    - name: host-root
+      mountPath: /host
+      mountPropagation: HostToContainer
+  volumes:
+    - name: host-root
+      hostPath:
+        path: /
+        type: Directory
