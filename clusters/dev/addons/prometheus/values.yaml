@@ -1,5 +1,13 @@
 server:
   service:
     type: NodePort
+
 alertmanager:
   enabled: true
+
+
+nodeExporter:
+  hostRootMountPropagation: ""
+  extraArgs: {}
+  volumeMounts: []
+  volumes: []
