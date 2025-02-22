@@ -12,7 +12,7 @@ spec:
 
     helm:
       valueFiles:
-        - ../addons/ingress-nginx/values.yaml
+        - ../../dev/addons/ingress-nginx/values.yaml
 
   destination:
     server: https://kubernetes.default.svc

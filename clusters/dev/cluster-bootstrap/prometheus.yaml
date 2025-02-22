@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: prometheus
       valueFiles:
-        - ../../clusters/dev/addons/prometheus/values.yaml
+        - ../../dev/addons/prometheus/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring
