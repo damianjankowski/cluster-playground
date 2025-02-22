@@ -1,4 +1,7 @@
 controller:
+  replicaCount: 2
+  service:
+    type: LoadBalancer
   metrics:
     enabled: true
     serviceMonitor:
