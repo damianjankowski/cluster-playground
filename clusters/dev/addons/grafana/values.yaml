@@ -1,0 +1,3 @@
+adminPassword: "superSecretPassword"
+service:
+  type: NodePort

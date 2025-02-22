@@ -1,22 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: cluster-bootstrap
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/damianjankowski/cluster-playground.git'
-    path: bases/addons/ingress-nginx
     targetRevision: HEAD
-
-    helm:
-      valueFiles:
-        - ../addons/ingress-nginx/values.yaml
-
+    path: clusters/dev/cluster-bootstrap
   destination:
-    server: https://kubernetes.default.svc
-    namespace: nginx
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
