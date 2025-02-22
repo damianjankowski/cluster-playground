@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: prometheus
       valueFiles:
-        - ../../dev/addons/prometheus/values.yaml
+        - ../../../clusters/dev/addons/grafana/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

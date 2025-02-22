@@ -12,7 +12,7 @@ spec:
 
     helm:
       valueFiles:
-        - ../../dev/addons/ingress-nginx/values.yaml
+        - ../../../clusters/dev/addons/grafana/values.yaml
 
   destination:
     server: https://kubernetes.default.svc
