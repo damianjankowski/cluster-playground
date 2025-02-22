@@ -11,8 +11,7 @@ spec:
     path: bases/addons/prometheus
     helm:
       releaseName: prometheus
-      valueFiles:
-        - []
+#      valueFiles:
 #        - ../../../clusters/dev/addons/prometheus/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
