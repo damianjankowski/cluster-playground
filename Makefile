@@ -66,3 +66,12 @@ argocd-get-password: ## Get ArgoCD password
 argocd-get-server: ## Get ArgoCD server
 	@echo -e "${COLOR_GREEN}Get ArgoCD server...${COLOR_RESET}"
 	kubectl get svc argocd-server -n argocd
+
+.PHONY: bootstrap
+bootstrap: ## Get ArgoCD server
+	argocd app create cluster-bootstrap \
+		--dest-namespace argocd \
+		--dest-server https://kubernetes.default.svc \
+		--repo https://github.com/damianjankowski/cluster-playground.git \
+		--path clusters/dev/cluster-bootstrap/
+	argocd app sync cluster-bootstrap
