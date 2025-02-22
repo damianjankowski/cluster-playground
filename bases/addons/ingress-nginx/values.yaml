@@ -1,7 +1,7 @@
 controller:
   replicaCount: 2
   service:
-    type: NodePort
+    type: LoadBalancer
   metrics:
     enabled: true
     serviceMonitor:
