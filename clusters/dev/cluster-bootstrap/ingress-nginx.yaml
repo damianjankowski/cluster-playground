@@ -11,6 +11,7 @@ spec:
     targetRevision: HEAD
 
     helm:
+      releaseName: nginx
       valueFiles:
         - ../../../clusters/dev/addons/ingress-nginx/values.yaml
 
