@@ -9,10 +9,10 @@ spec:
     repoURL: 'https://github.com/damianjankowski/cluster-playground.git'
     targetRevision: HEAD
     path: bases/addons/prometheus
-    helm:
-      releaseName: prometheus
-      valueFiles:
-        - ../../../clusters/dev/addons/grafana/values.yaml
+#    helm:
+#      releaseName: prometheus
+#      valueFiles:
+#        - ../../../clusters/dev/addons/prometheus/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring
