@@ -2,6 +2,12 @@ controller:
   replicaCount: 2
   service:
     type: LoadBalancer
+  ingressClassResource:
+    name: nginx
+    enabled: true
+  ingressClass: nginx
+  config:
+    use-forwarded-headers: "true"
   metrics:
     enabled: true
     serviceMonitor:
