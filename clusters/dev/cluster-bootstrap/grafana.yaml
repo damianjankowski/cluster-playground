@@ -14,7 +14,7 @@ spec:
       releaseName: grafana
       valueFiles:
         - ../../../clusters/dev/addons/grafana/values.yaml
-        -
+
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring
