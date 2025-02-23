@@ -1,8 +1,30 @@
-hostNetwork: true
-hostPort:
-  enabled: true
-service:
-  type: NodePort
-  nodePorts:
-    http: 30080
-    https: 30443
+controller:
+  replicaCount: 1
+  hostNetwork: true
+  hostPort:
+    enabled: true
+  service:
+    type: NodePort
+    nodePorts:
+      http: 30080
+      https: 30443
+    ingressClassResource:
+      name: nginx
+      enabled: true
+    ingressClass: nginx
+    config:
+      use-forwarded-headers: "true"
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        namespace: monitoring
+        scrapeInterval: 30s
+        additionalLabels:
+          release: prometheus
+        metricRelabelings:
+          - sourceLabels: [__name__]
+            regex: "nginx_ingress_controller_requests.*"
+            action: keep
+
+
