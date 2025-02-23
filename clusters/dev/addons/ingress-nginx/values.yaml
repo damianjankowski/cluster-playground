@@ -1,5 +1,12 @@
 controller:
-  replicaCount: 1
+  hostNetwork: true
+  hostPort:
+    enabled: true
+  replicaCount: 2
   service:
     type: LoadBalancer
+    externalTrafficPolicy: Local
+  config:
+    use-forwarded-headers: "true"
+    compute-full-forwarded-for: "true"
 
